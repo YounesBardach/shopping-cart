@@ -1,0 +1,63 @@
+{
+  "compilerOptions": {
+    // Specifies the file where TypeScript stores its build information.
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+
+    // Sets the target JavaScript version for the compiled code (ES2020 features).
+    "target": "ES2020",
+
+    // Ensures that TypeScript uses `define` when emitting class fields to match the ES2022 specification.
+    "useDefineForClassFields": true,
+
+    // Includes specific libraries in the TypeScript compilation for DOM and iterable features.
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+
+    // Sets the module system to the latest (ESNext) for module resolution.
+    "module": "ESNext",
+
+    // Skips type checking of declaration files to speed up the build process.
+    "skipLibCheck": true,
+
+    // Defines how modules should be resolved. "bundler" means using Vite's module resolution.
+    "moduleResolution": "bundler",
+
+    // Allows importing TypeScript files with a `.ts` or `.tsx` extension directly.
+    "allowImportingTsExtensions": true,
+
+    // Enables importing JSON modules as modules.
+    "resolveJsonModule": true,
+
+    // Enables isolated module checking, ensuring files can be compiled independently.
+    "isolatedModules": true,
+
+    // Forces TypeScript to always detect modules, which can help prevent module resolution issues.
+    "moduleDetection": "force",
+
+    // Prevents TypeScript from generating any output files, useful for type-checking without emitting.
+    "noEmit": true,
+
+    // Specifies JSX handling for React projects (enabled `react-jsx` for React 17+ JSX Transform).
+    "jsx": "react-jsx",
+
+    // Enables strict type-checking options for better safety (e.g., no `any` type).
+    "strict": true,
+
+    // Ensures that all declared variables must be used, preventing unused variables.
+    "noUnusedLocals": true,
+
+    // Ensures that all function parameters must be used.
+    "noUnusedParameters": true,
+
+    // Ensures there are no fall-through cases in switch statements, preventing logical errors.
+    "noFallthroughCasesInSwitch": true,
+
+    // Ensures that side-effect-free imports are not marked as unused.
+    "noUncheckedSideEffectImports": true
+  },
+
+  // Specifies the directories and files that TypeScript should include in the compilation.
+  "include": ["src", "vite-env.d.ts"],
+
+  // References another `tsconfig` file for node environment-specific configuration.
+  "references": [{ "path": "./tsconfig.node.json" }]
+}

@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    // Configuration options for the TypeScript compiler.
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo", // Specifies the path to the file where TypeScript stores build information (useful for incremental compilation).
+    "composite": true, // Enables project-wide composite builds, allowing the project to be referenced by other projects.
+    "target": "ES2022", // Sets the target ECMAScript version to ES2022 for JavaScript output.
+    "useDefineForClassFields": true, // Uses the ECMAScript private class field semantics when generating code.
+    "lib": ["ES2023"], // Specifies the libraries to include during compilation. Here, it includes ES2023 features.
+    "module": "ESNext", // Sets the module system to the latest (ESNext) version of JavaScript.
+    "skipLibCheck": true, // Skips type checking of declaration files (e.g., `*.d.ts` files) to speed up compilation.
+    "moduleResolution": "bundler", // Uses bundler-specific module resolution logic for handling imports.
+    "allowImportingTsExtensions": false, // Disallows importing TypeScript files with `.ts` extensions directly.
+    "resolveJsonModule": true, // Allows importing `.json` files as modules.
+    "isolatedModules": true, // Ensures that each file is treated as an isolated module (useful for transpiling in a way that does not require type-checking of other files).
+    "moduleDetection": "force", // Forces module detection for all files to behave like ES modules.
+    "noEmit": false, // Allows emitting of output files (compilation happens).
+    "strict": true, // Enables all strict type-checking options for the highest level of type safety.
+    "noUnusedLocals": true, // Raises an error when there are unused local variables.
+    "noUnusedParameters": true, // Raises an error when there are unused function parameters.
+    "noFallthroughCasesInSwitch": true, // Ensures all switch-case statements have a break or return to avoid fallthrough.
+    "noUncheckedSideEffectImports": true, // Ensures side-effects in imports are checked for correctness.
+    "allowSyntheticDefaultImports": true // Allows default imports from modules that do not have a default export (e.g., CommonJS modules).
+  },
+  "include": ["vite.config.ts"] // Specifies that only the 'vite.config.ts' file should be included in the compilation.
+}

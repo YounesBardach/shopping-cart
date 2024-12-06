@@ -1,0 +1,8 @@
+{
+  "files": [], // Specifies the list of files to include for the current TypeScript configuration. It's empty, meaning no specific files are targeted directly.
+  "references": [
+    // A list of references to other tsconfig files that this configuration depends on.
+    { "path": "./tsconfig.app.json" }, // A reference to the 'tsconfig.app.json' file, which may include settings for the application code.
+    { "path": "./tsconfig.node.json" } // A reference to the 'tsconfig.node.json' file, which may include settings for the Node.js environment or server-side code.
+  ]
+}
