@@ -1,0 +1,24 @@
+.flexnav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexnav__list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  gap: 1rem;
+}
+
+/* .flexnav__item {
+} */
+
+.flexnav__link {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}

@@ -1,0 +1,52 @@
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.gridContainer__item {
+  border: 1px solid #ddd;
+  padding: 16px;
+  background-color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.gridContainer__item:hover {
+  transform: scale(1.05);
+}
+
+.gridContainer__image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.gridContainer__title {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.gridContainer__price {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.gridContainer__description {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.gridContainer__category {
+  font-size: 0.8rem;
+  color: #aaa;
+  margin-bottom: 15px;
+}
+
+.gridContainer__rating {
+  font-size: 0.9rem;
+  color: #555;
+}

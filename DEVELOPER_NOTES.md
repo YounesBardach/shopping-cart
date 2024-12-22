@@ -2,6 +2,7 @@
 
 npm create vite@latest . -- --template react-ts
 npm install
+npm install modern-normalize
 npm install vitest --save-dev
 npm install jsdom --save-dev
 npm install @testing-library/react @testing-library/jest-dom @testing-library/user-event --save-dev

@@ -5,6 +5,8 @@ import { cleanup } from "@testing-library/react"; // 'cleanup' is used to clean 
 
 import * as matchers from "@testing-library/jest-dom/matchers"; // Imports all the matchers from '@testing-library/jest-dom', which provides additional assertions for DOM elements (e.g., to check if an element is visible, has text, etc.).
 
+import "@testing-library/jest-dom"; //Import jest-dom globally for custom assertions
+
 expect.extend(matchers); // Extends the default 'expect' API with the additional matchers from '@testing-library/jest-dom'. This enables using assertions like 'toBeInTheDocument()', 'toHaveTextContent()', etc.
 
 afterEach(() => {
