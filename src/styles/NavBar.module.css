@@ -2,6 +2,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #f8f8f8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 10; /* Ensure it stays above other elements */
 }
 
 .flexnav__list {
@@ -14,11 +22,13 @@
   gap: 1rem;
 }
 
-/* .flexnav__item {
-} */
-
 .flexnav__link {
   text-decoration: none;
   color: black;
   font-weight: bold;
+  transition: color 0.3s;
+}
+
+.flexnav__link:hover {
+  color: #007bff;
 }

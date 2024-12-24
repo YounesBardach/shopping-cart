@@ -5,7 +5,8 @@ import ProductGrid from "./components/ProductGrid";
 function App(): JSX.Element {
   return (
     <>
-      ,<NavBar></NavBar> <ProductGrid></ProductGrid>
+      <NavBar />
+      <ProductGrid />
     </>
   );
 }

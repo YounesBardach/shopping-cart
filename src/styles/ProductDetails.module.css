@@ -1,0 +1,129 @@
+.productDetails {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #f8f8f8;
+  position: relative;
+  top: 60px;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  height: calc(100vh - 60px);
+}
+
+.productDetails__content {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.productDetails__closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+}
+
+.productDetails__image {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block;
+}
+
+.productDetails__title {
+  margin-top: 15px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.productDetails__description {
+  font-size: 0.95rem;
+  margin-top: 8px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.productDetails__category {
+  font-size: 0.95rem;
+  margin-top: 8px;
+  color: #666;
+}
+
+.productDetails__rating {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.productDetails__quantity {
+  margin-top: 10px;
+}
+
+.productDetails__quantityLabel {
+  font-size: 1rem;
+  color: #333;
+}
+
+.productDetails__quantityInput {
+  margin-top: 8px;
+  padding: 5px;
+  width: 50px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.productDetails__addToCartButton {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  margin-top: 15px;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.productDetails__addToCartButton:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .productDetails__content {
+    max-width: 90%;
+  }
+
+  .productDetails__title {
+    font-size: 1.3rem;
+  }
+
+  .productDetails__description {
+    font-size: 0.85rem;
+  }
+
+  .productDetails__quantityInput {
+    width: 40px;
+  }
+
+  .productDetails__addToCartButton {
+    padding: 6px 12px;
+  }
+
+  .productDetails__image {
+    max-width: 100%;
+  }
+}

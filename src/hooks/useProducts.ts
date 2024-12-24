@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Product } from "../types/models";
 
 // product data example:
 // {
@@ -24,21 +25,6 @@ import { useState, useEffect } from "react";
 //     "body": "[{\"id\": 1, \"title\": \"Product 1\", \"price\": 19.99, \"description\": \"Description of Product 1\", \"category\": \"electronics\", \"image\": \"image_url\", \"rating\": {\"rate\": 4.5, \"count\": 150}}]",
 //     "ok": true
 //   }
-
-interface Rating {
-  rate: number;
-  count: number;
-}
-
-interface Product {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-  rating: Rating;
-}
 
 const useProducts = () => {
   const [products, setProducts] = useState<Product[]>([]);
