@@ -1,0 +1,78 @@
+/* styles/Cart.module.css */
+
+.cartContainer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 80px; /* Added margin-top to account for the fixed navbar height */
+}
+
+.cartItems {
+  display: flex;
+  flex-direction: column;
+}
+
+.cartItem {
+  display: flex;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
+}
+
+/* styles/Cart.module.css */
+
+/* styles/Cart.module.css */
+
+.cartItemImage {
+  max-width: 100px; /* Maximum width */
+  max-height: 100px; /* Maximum height */
+  object-fit: contain; /* Ensure the image fits within the box without being cropped */
+  margin-right: 20px;
+  border-radius: 8px; /* Optional: Add rounded corners if you prefer */
+}
+
+.cartItemDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.cartItemQuantity {
+  margin-top: 10px;
+}
+
+.quantityInput {
+  width: 50px;
+  padding: 5px;
+  margin-left: 5px;
+}
+
+.removeButton {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.removeButton:hover {
+  background-color: darkred;
+}
+
+.cartTotal {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.checkoutButton {
+  padding: 10px 20px;
+  background-color: green;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.checkoutButton:hover {
+  background-color: darkgreen;
+}

@@ -52,14 +52,21 @@
 
 .gridContainer__price {
   font-size: 1rem;
-  color: #333;
   margin-bottom: 10px;
 }
 
 .gridContainer__description {
   font-size: 0.9rem;
-  color: #666;
   margin-bottom: 10px;
+}
+
+.gridContainer__link {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Ensure the color of the link inherits from its parent */
+}
+
+.gridContainer__link:hover {
+  color: #007bff; /* Keep the hover effect color if needed */
 }
 
 .loading {

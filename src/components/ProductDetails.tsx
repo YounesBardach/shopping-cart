@@ -1,31 +1,42 @@
-import React from "react";
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useCart } from "../hooks/useCart"; // Assuming you have a cart context or hook
+import Toast from "./Toast";
 import styles from "../styles/ProductDetails.module.css";
-import { Product } from "../types/models";
 
-interface ProductDetailsProps {
-  product: Product;
-  quantity: number;
-  onClose: () => void;
-  onQuantityChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onAddToCart: () => void;
-}
+const ProductDetails = (): JSX.Element => {
+  const location = useLocation();
+  const product = location.state?.product;
+  const { addToCart } = useCart(); // Assuming you have a hook for cart actions
 
-const ProductDetails: React.FC<ProductDetailsProps> = ({
-  product,
-  quantity,
-  onClose,
-  onQuantityChange,
-  onAddToCart,
-}) => {
+  const [quantity, setQuantity] = useState<number>(1);
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
+
+  const handleQuantityChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newQuantity = Math.max(1, Number(event.target.value)); // Ensure at least 1
+    setQuantity(newQuantity);
+  };
+
+  const handleAddToCart = () => {
+    if (product) {
+      addToCart(product, quantity); // Add the product to cart logic
+      setToastMessage(`${product.title} has been added to your cart!`);
+      setShowToast(true);
+      setTimeout(() => setShowToast(false), 3000); // Automatically dismiss the toast after 3 seconds
+    }
+  };
+
+  if (!product) {
+    return <div className={styles.error}>Product not found.</div>;
+  }
+
   return (
     <div className={styles.productDetails}>
       <div className={styles.productDetails__content}>
-        <button
-          className={styles.productDetails__closeButton}
-          onClick={onClose}
-        >
+        <Link to="/" className={styles.productDetails__closeButton}>
           &times;
-        </button>
+        </Link>
         <img
           src={product.image}
           alt={product.title}
@@ -45,6 +56,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
           <span>Rating: {product.rating.rate} ⭐</span>
           <span>({product.rating.count} reviews)</span>
         </div>
+
         <div className={styles.productDetails__quantity}>
           <label
             htmlFor="quantity"
@@ -57,17 +69,23 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
             type="number"
             value={quantity}
             min={1}
-            onChange={onQuantityChange}
+            onChange={handleQuantityChange}
             className={styles.productDetails__quantityInput}
           />
         </div>
+
         <button
           className={styles.productDetails__addToCartButton}
-          onClick={onAddToCart}
+          onClick={handleAddToCart}
         >
           Add to Cart
         </button>
       </div>
+
+      {/* Show the Toast Notification */}
+      {showToast && (
+        <Toast message={toastMessage} onClose={() => setShowToast(false)} />
+      )}
     </div>
   );
 };

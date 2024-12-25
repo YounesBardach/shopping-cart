@@ -1,14 +1,17 @@
 import "./styles/App.module.css";
 import NavBar from "./components/NavBar";
-import ProductGrid from "./components/ProductGrid";
+import { Outlet } from "react-router-dom";
 
-function App(): JSX.Element {
+function App() {
   return (
-    <>
+    <div>
       <NavBar />
-      <ProductGrid />
-    </>
+      <main>
+        <Outlet /> {/* This is where child routes will be rendered */}
+      </main>
+    </div>
   );
 }
 
 export default App;
+
