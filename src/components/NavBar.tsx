@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import styles from "../styles/NavBar.module.css";
-import { useCart } from "../hooks/useCart"; // Import the useCart hook
+import { useCart } from "../hooks/useCart";
 
 const NavBar = (): JSX.Element => {
-  const { getTotalQuantity } = useCart(); // Get total quantity from the cart hook
+  const { getTotalQuantity } = useCart();
 
-  const totalQuantity = getTotalQuantity(); // Calculate total quantity
+  const totalQuantity = getTotalQuantity();
 
   return (
     <nav className={styles.flexnav}>

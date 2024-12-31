@@ -1,21 +1,19 @@
-// context/ProductProvider.tsx
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, ReactNode } from "react";
 import { ProductContext } from "./ProductContext";
 import { Product } from "../types/models";
 
 interface ProductProviderProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
-export const ProductProvider: React.FC<ProductProviderProps> = ({
+export const ProductProvider = ({
   children,
-}) => {
+}: ProductProviderProps): JSX.Element => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Fetch products from the API
-  const fetchProducts = async () => {
+  const fetchProducts = async (): Promise<void> => {
     setLoading(true);
     try {
       const response = await fetch("https://fakestoreapi.com/products");
@@ -45,7 +43,13 @@ export const ProductProvider: React.FC<ProductProviderProps> = ({
         throw new Error("The server did not return JSON.");
       }
     } catch (err) {
-      setError("Failed to fetch products");
+      if (err instanceof Error) {
+        console.error("Failed to fetch products:", err.message);
+        setError(err.message);
+      } else {
+        console.error("Unexpected error type:", err);
+        setError("An unexpected error occurred.");
+      }
     } finally {
       setLoading(false);
     }

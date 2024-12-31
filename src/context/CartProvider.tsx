@@ -1,61 +1,62 @@
-// context/CartProvider.tsx
 import { ReactNode, useState } from "react";
 import { CartContext } from "./CartContext";
 import { Product } from "../types/models";
 
-// Defining the Cart Item Type
-export interface CartItem {
+interface CartItem {
   product: Product;
   quantity: number;
 }
 
-// Defining the Cart Context Type
 export interface CartContextType {
   cartItems: CartItem[];
   addToCart: (product: Product, quantity: number) => void;
   removeFromCart: (productId: number) => void;
   updateQuantity: (productId: number, quantity: number) => void;
   getTotalPrice: () => number;
-  getTotalQuantity: () => number; // New function to get total quantity
+  getTotalQuantity: () => number;
 }
 
-export const CartProvider = ({ children }: { children: ReactNode }) => {
+interface CartProviderProps {
+  children: ReactNode;
+}
+
+export const CartProvider = ({ children }: CartProviderProps): JSX.Element => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
-  // Add product to cart or update existing one
-  const addToCart = (product: Product, quantity: number) => {
-    setCartItems((prev) => {
-      const existingItem = prev.find((item) => item.product.id === product.id);
-      if (existingItem) {
-        return prev.map((item) =>
-          item.product.id === product.id
-            ? { ...item, quantity: item.quantity + quantity }
-            : item
+  const addToCart = (product: Product, quantityToAdd: number) => {
+    setCartItems((currentCartItems) => {
+      const existingCartItem = currentCartItems.find(
+        (cartItem) => cartItem.product.id === product.id
+      );
+
+      if (existingCartItem) {
+        return currentCartItems.map((cartItem) =>
+          cartItem.product.id === product.id
+            ? { ...cartItem, quantity: cartItem.quantity + quantityToAdd }
+            : cartItem
         );
       }
-      return [...prev, { product, quantity }];
+
+      return [...currentCartItems, { product, quantity: quantityToAdd }];
     });
   };
 
-  // Remove item from the cart
   const removeFromCart = (productId: number) => {
-    setCartItems((prev) =>
-      prev.filter((item) => item.product.id !== productId)
+    setCartItems((currentCartItems) =>
+      currentCartItems.filter((item) => item.product.id !== productId)
     );
   };
 
-  // Update quantity of item in the cart
   const updateQuantity = (productId: number, quantity: number) => {
-    setCartItems((prev) =>
-      prev.map((item) =>
-        item.product.id === productId
-          ? { ...item, quantity: Math.max(1, quantity) }
-          : item
+    setCartItems((currentCartItems) =>
+      currentCartItems.map((cartItem) =>
+        cartItem.product.id === productId
+          ? { ...cartItem, quantity: Math.max(1, quantity) }
+          : cartItem
       )
     );
   };
 
-  // Calculate total price of the cart
   const getTotalPrice = () => {
     return cartItems.reduce(
       (total, item) => total + item.product.price * item.quantity,
@@ -63,7 +64,6 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     );
   };
 
-  // Get total quantity of all items in the cart
   const getTotalQuantity = () => {
     return cartItems.reduce((total, item) => total + item.quantity, 0);
   };
@@ -76,7 +76,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         removeFromCart,
         updateQuantity,
         getTotalPrice,
-        getTotalQuantity, // Provide total quantity function
+        getTotalQuantity,
       }}
     >
       {children}

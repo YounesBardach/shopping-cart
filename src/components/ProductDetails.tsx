@@ -1,29 +1,29 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useCart } from "../hooks/useCart"; // Assuming you have a cart context or hook
+import { useCart } from "../hooks/useCart";
 import Toast from "./Toast";
 import styles from "../styles/ProductDetails.module.css";
 
 const ProductDetails = (): JSX.Element => {
   const location = useLocation();
   const product = location.state?.product;
-  const { addToCart } = useCart(); // Assuming you have a hook for cart actions
+  const { addToCart } = useCart();
 
   const [quantity, setQuantity] = useState<number>(1);
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
 
   const handleQuantityChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newQuantity = Math.max(1, Number(event.target.value)); // Ensure at least 1
+    const newQuantity = Math.max(1, Number(event.target.value));
     setQuantity(newQuantity);
   };
 
   const handleAddToCart = () => {
     if (product) {
-      addToCart(product, quantity); // Add the product to cart logic
+      addToCart(product, quantity);
       setToastMessage(`${product.title} has been added to your cart!`);
       setShowToast(true);
-      setTimeout(() => setShowToast(false), 3000); // Automatically dismiss the toast after 3 seconds
+      setTimeout(() => setShowToast(false), 3000);
     }
   };
 
@@ -81,11 +81,7 @@ const ProductDetails = (): JSX.Element => {
           Add to Cart
         </button>
       </div>
-
-      {/* Show the Toast Notification */}
-      {showToast && (
-        <Toast message={toastMessage} onClose={() => setShowToast(false)} />
-      )}
+      {showToast && <Toast message={toastMessage} />}
     </div>
   );
 };

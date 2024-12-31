@@ -1,4 +1,3 @@
-// context/CartContext.ts
 import { createContext } from "react";
 import { CartContextType } from "./CartProvider";
 

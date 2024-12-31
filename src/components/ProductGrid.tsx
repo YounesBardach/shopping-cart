@@ -1,9 +1,8 @@
 import styles from "../styles/ProductGrid.module.css";
-import { useProduct } from "../hooks/useProducts"; // Importing the custom hook
+import { useProduct } from "../hooks/useProducts";
 import { Link } from "react-router-dom";
 
 const ProductGrid = (): JSX.Element => {
-  // Using the custom useProduct hook to access products, loading, and error state
   const { products, loading, error } = useProduct();
 
   if (loading) {

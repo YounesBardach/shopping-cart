@@ -1,52 +1,46 @@
-/* styles/Cart.module.css */
-
-.cartContainer {
+.cart__container {
   max-width: 900px;
   margin: 0 auto;
   padding: 20px;
-  margin-top: 80px; /* Added margin-top to account for the fixed navbar height */
+  margin-top: 80px;
 }
 
-.cartItems {
+.cart__items {
   display: flex;
   flex-direction: column;
 }
 
-.cartItem {
+.cart__item {
   display: flex;
   margin-bottom: 20px;
   border-bottom: 1px solid #ccc;
   padding-bottom: 20px;
 }
 
-/* styles/Cart.module.css */
-
-/* styles/Cart.module.css */
-
-.cartItemImage {
-  max-width: 100px; /* Maximum width */
-  max-height: 100px; /* Maximum height */
-  object-fit: contain; /* Ensure the image fits within the box without being cropped */
+.cart__item-image {
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: contain;
   margin-right: 20px;
-  border-radius: 8px; /* Optional: Add rounded corners if you prefer */
+  border-radius: 8px;
 }
 
-.cartItemDetails {
+.cart__item-details {
   display: flex;
   flex-direction: column;
 }
 
-.cartItemQuantity {
+.cart__item-quantity {
   margin-top: 10px;
 }
 
-.quantityInput {
+.cart__quantity-input {
   width: 50px;
   padding: 5px;
   margin-left: 5px;
 }
 
-.removeButton {
+.cart__remove-button {
   background-color: red;
   color: white;
   border: none;
@@ -55,17 +49,17 @@
   cursor: pointer;
 }
 
-.removeButton:hover {
+.cart__remove-button:hover {
   background-color: darkred;
 }
 
-.cartTotal {
+.cart__total {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
 }
 
-.checkoutButton {
+.cart__checkout-button {
   padding: 10px 20px;
   background-color: green;
   color: white;
@@ -73,6 +67,6 @@
   cursor: pointer;
 }
 
-.checkoutButton:hover {
+.cart__checkout-button:hover {
   background-color: darkgreen;
 }
