@@ -38,6 +38,8 @@ const router = createBrowserRouter([
   },
 ]);
 
+// RouterProvider is then used to pass the router to the NavBar component, giving it access to the routing context.
+
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <RouterProvider router={router} />

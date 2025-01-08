@@ -28,3 +28,11 @@ npm install eslint-plugin-prettier eslint-config-prettier --save-dev
 - vite.config.ts: Vite config file
 - setup.ts: configure and initialize things before the tests run.
 - .vscode/settings.json: configure workspace-specific settings in Visual Studio Code (VS Code).
+
+# Testing
+
+Vitest runs your tests.
+jsdom creates a simulated browser environment where the tests run.
+@testing-library/react renders your React components in the simulated DOM and provides a way to interact with and query the DOM.
+@testing-library/jest-dom adds extended matchers to your expect() assertions, making them easier to read and understand when testing the DOM.
+@testing-library/user-event allows you to simulate user actions (like clicks, typing, etc.) in your tests to make them more realistic and representative of real-world usage.
