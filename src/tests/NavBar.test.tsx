@@ -18,13 +18,11 @@ vi.mock("../hooks/useCart", () => ({
 
 // Import the mocked `useCart` hook
 import { useCart } from "../hooks/useCart";
+const useCartMock = vi.mocked(useCart); // casts the mock to the correct type
 
+// Starts a test suite for the NavBar component.
 describe("NavBar Component", () => {
-  // Starts a test suite for the NavBar component.
-
-  const useCartMock = vi.mocked(useCart); // casts the mock to the correct type
-
-  // Mock the full CartContextType structure
+  // Mock the full CartContext structure
   const mockCartContext = {
     cartItems: [],
     addToCart: vi.fn(),
@@ -53,13 +51,12 @@ describe("NavBar Component", () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
-    useCartMock.mockReturnValue({
-      ...mockCartContext,
-      getTotalQuantity: () => 0,
-    });
   });
 
   test("renders the navigation links", () => {
+    useCartMock.mockReturnValue({
+      ...mockCartContext, // Cart link needs the total quantity
+    });
     renderWithRouter();
     expect(screen.getByRole("link", { name: /home/i })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /cart/i })).toBeInTheDocument();
@@ -79,6 +76,10 @@ describe("NavBar Component", () => {
   });
 
   test("does not render cart badge when total quantity is 0", () => {
+    useCartMock.mockReturnValue({
+      ...mockCartContext,
+      getTotalQuantity: () => 0,
+    });
     renderWithRouter();
     const cartBadge = screen.queryByText("0");
     expect(cartBadge).not.toBeInTheDocument();

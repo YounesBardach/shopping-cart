@@ -1,5 +1,5 @@
 import styles from "../styles/ProductGrid.module.css";
-import { useProduct } from "../hooks/useProducts";
+import { useProduct } from "../hooks/useProduct";
 import { Link } from "react-router-dom";
 
 const ProductGrid = (): JSX.Element => {
