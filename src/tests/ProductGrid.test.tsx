@@ -4,7 +4,6 @@ import { vi } from "vitest";
 import ProductGrid from "../components/ProductGrid";
 import { useProduct } from "../hooks/useProduct";
 
-// Mock the `useProduct` hook
 vi.mock("../hooks/useProduct");
 const mockUseProduct = vi.mocked(useProduct);
 
