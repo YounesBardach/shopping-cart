@@ -6,7 +6,8 @@
 
 ## Shopping Cart (React + TypeScript + Vite)
 
-A minimal e‑commerce demo to practice React, React Testing Library, and data fetching for The Odin Project.
+A minimal e‑commerce demo to practice React, React Testing Library, and data
+fetching for The Odin Project.
 
 [![Node.js](https://img.shields.io/badge/Node.js-20%2B-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
 [![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=061A22)](https://react.dev/)
@@ -33,17 +34,19 @@ A minimal e‑commerce demo to practice React, React Testing Library, and data f
 - [Routes](#routes)
 - [Architecture](#architecture)
 - [Testing](#testing)
-- [Deployment](#deployment)
- 
 
 ---
 
 ## About
 
-This project is part of The Odin Project React curriculum: [The Odin Project — Project: Shopping Cart](https://www.theodinproject.com/lessons/node-path-react-new-shopping-cart). It focuses on practicing component composition, client-side routing, React Context, data fetching, and testing.
+This project is part of The Odin Project React curriculum:
+[The Odin Project — Project: Shopping Cart](https://www.theodinproject.com/lessons/node-path-react-new-shopping-cart).
+It focuses on practicing component composition, client-side routing, React
+Context, data fetching, and testing.
 
-- Live app: `https://celadon-praline-45af30.netlify.app/`
-- Data source: FakeStore API (`https://fakestoreapi.com/products`)
+- Live app:
+  [https://celadon-praline-45af30.netlify.app/](https://celadon-praline-45af30.netlify.app/)
+- Data source: [FakeStore API](https://fakestoreapi.com/products)
 
 ## Features
 
@@ -133,14 +136,19 @@ shopping-cart/
 
 ## Architecture
 
-- **Product fetching:** `ProductProvider` fetches from FakeStore API with basic validation and exposes `{ products, loading, error, fetchProducts }` via `ProductContext`.
-- **Cart state:** `CartProvider` keeps an in-memory cart with `addToCart`, `removeFromCart`, `updateQuantity`, `getTotalPrice`, and `getTotalQuantity`.
+- **Product fetching:** `ProductProvider` fetches from FakeStore API with basic
+  validation and exposes `{ products, loading, error, fetchProducts }` via
+  `ProductContext`.
+- **Cart state:** `CartProvider` keeps an in-memory cart with `addToCart`,
+  `removeFromCart`, `updateQuantity`, `getTotalPrice`, and `getTotalQuantity`.
 - **Hooks:** `useProduct` and `useCart` consume the contexts with type safety.
-- **UI:** `ProductGrid`, `ProductDetails` (with toast), `Cart`, `NavBar` (shows cart count), and `Toast` component. CSS Modules for styling.
+- **UI:** `ProductGrid`, `ProductDetails` (with toast), `Cart`, `NavBar` (shows
+  cart count), and `Toast` component. CSS Modules for styling.
 
 ## Testing
 
-Tests are written with Vitest and React Testing Library. A jsdom environment is configured in `src/tests/setup.ts`.
+Tests are written with Vitest and React Testing Library. A jsdom environment is
+configured in `src/tests/setup.ts`.
 
 ```bash
 npm run test
@@ -152,15 +160,3 @@ Examples covered:
 - Nav cart count via `NavBar`
 - Product detail interactions (quantity and add to cart)
 - Cart quantity updates and total calculation
-
-## Deployment
-
-This site is deployed to Netlify: `https://celadon-praline-45af30.netlify.app/`.
-
-For SPAs, ensure all routes rewrite to `index.html`. If needed, add a `_redirects` file under `public/`:
-
-```text
-/* /index.html 200
-```
-
- 
